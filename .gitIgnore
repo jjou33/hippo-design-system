@@ -1,0 +1,9 @@
+*.DS_Stroe
+*.log
+*.tsbuildinfo
+
+**/package-lock.json
+**/node_modules/
+
+**/dist/*
+dist
