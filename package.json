@@ -2,6 +2,13 @@
   "name": "hippods",
   "version": "0.0.0",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  }
+    "dev": "turbo start:live",
+    "test": "pnpm build && pnpm dev",
+    "build": "turbo build",
+    "serve": "turbo build:start"
+  },
+  "devDependencies": {
+    "turbo": "^2.2.3"
+  },
+  "packageManager": "pnpm@8.7.1+sha256.9f0febfd67c8f4317f4cf2edbf2ff4bf326f0e7dbb2b5b03aa05248f9faa26c5"
 }

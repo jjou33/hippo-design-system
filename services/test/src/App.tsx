@@ -2,8 +2,8 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { ThemeProvider } from "@emotion/react";
-import { vars } from "@hippods/themes";
 import styled from "@emotion/styled";
+import { vars, classes } from "@hippods/themes";
 
 function App() {
   const theme = {
@@ -20,9 +20,7 @@ const View = () => {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <Text>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </Text>
+        <Text>{vars.box.radii["2xl"]}</Text>
         <a
           className="App-link"
           href="https://reactjs.org"
@@ -37,6 +35,7 @@ const View = () => {
 };
 
 const Text = styled.p`
+  ${classes.typography.heading["4xl"]}
   color: ${vars.colors.$static.light.red[500]};
 `;
 export default App;
