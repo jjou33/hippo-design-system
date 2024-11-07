@@ -1,7 +1,7 @@
 export const color = {
   black: "#000",
   white: "#fff",
-};
+}
 
 export const whiteAlpha = {
   900: "rgba(255, 255, 255, 0.04)",
@@ -14,7 +14,7 @@ export const whiteAlpha = {
   200: "rgba(255, 255, 255, 0.64)",
   100: "rgba(255, 255, 255, 0.80)",
   50: "rgba(255, 255, 255, 0.92)",
-};
+}
 
 export const blackAlpha = {
   900: "rgba(0, 0, 0, 0.04)",
@@ -27,7 +27,7 @@ export const blackAlpha = {
   200: "rgba(0, 0, 0, 0.64)",
   100: "rgba(0, 0, 0, 0.80)",
   50: "rgba(0, 0, 0, 0.92)",
-};
+}
 
 export const gray = {
   900: "#F7FAFC",
@@ -40,7 +40,7 @@ export const gray = {
   200: "#2D3748",
   100: "#1A202C",
   50: "#171923",
-};
+}
 
 export const red = {
   900: "#FFF5F5",
@@ -53,7 +53,7 @@ export const red = {
   200: "#9B2C2C",
   100: "#822727",
   50: "#63171B",
-};
+}
 
 export const orange = {
   900: "#FFFAF0",
@@ -66,7 +66,7 @@ export const orange = {
   200: "#9C4221",
   100: "#7B341E",
   50: "#652B19",
-};
+}
 
 export const yellow = {
   900: "#FFFFF0",
@@ -79,7 +79,7 @@ export const yellow = {
   200: "#975A16",
   100: "#744210",
   50: "#5F370E",
-};
+}
 
 export const green = {
   900: "#F0FFF4",
@@ -92,7 +92,7 @@ export const green = {
   200: "#276749",
   100: "#22543D",
   50: "#1C4532",
-};
+}
 
 export const teal = {
   900: "#E6FFFA",
@@ -105,7 +105,7 @@ export const teal = {
   200: "#285E61",
   100: "#234E52",
   50: "#1D4044",
-};
+}
 
 export const blue = {
   900: "#ebf8ff",
@@ -118,7 +118,7 @@ export const blue = {
   200: "#2c5282",
   100: "#2a4365",
   50: "#1A365D",
-};
+}
 
 export const cyan = {
   900: "#EDFDFD",
@@ -131,7 +131,7 @@ export const cyan = {
   200: "#0987A0",
   100: "#086F83",
   50: "#065666",
-};
+}
 
 export const purple = {
   900: "#FAF5FF",
@@ -144,7 +144,7 @@ export const purple = {
   200: "#553C9A",
   100: "#44337A",
   50: "#322659",
-};
+}
 
 export const pink = {
   900: "#FFF5F7",
@@ -157,4 +157,4 @@ export const pink = {
   200: "#97266D",
   100: "#702459",
   50: "#521B41",
-};
+}

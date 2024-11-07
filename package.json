@@ -2,10 +2,13 @@
   "name": "hippods",
   "version": "0.0.0",
   "scripts": {
-    "dev": "turbo start:live",
+    "dev": "turbo dev",
     "test": "pnpm build && pnpm dev",
     "build": "turbo build",
-    "serve": "turbo build:start"
+    "serve": "turbo build:start",
+    "dev:all": "pnpm dev:packages --parallel && pnpm dev:storybook",
+    "dev:storybook": "pnpm --filter @hippods/storybook storybook",
+    "dev:packages": "pnpm --filter @hippods/react-components-* dev"
   },
   "devDependencies": {
     "turbo": "^2.2.3",
