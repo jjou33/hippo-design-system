@@ -24,7 +24,7 @@ export const FlexStory = {
     },
   },
   render: (args) => (
-    <_Flex {...args}>
+    <_Flex color="blue">
       <div>테스트</div>
       <div>입니다</div>
     </_Flex>
