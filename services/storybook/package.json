@@ -9,6 +9,9 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
     "@hippods/react-components-layout": "workspace:*",
+    "@hippods/react-components-button": "workspace:*",
+    "@hippods/react-hooks-button": "workspace:*",
+    "@hippods/react-hooks-toggle": "workspace:*",
     "@hippods/themes": "workspace:*",
     "@storybook/addon-essentials": "^8.4.2",
     "@storybook/addon-interactions": "^8.4.2",
@@ -20,6 +23,8 @@
     "storybook-addon-root-attributes": "^2.1.3",
     "prop-types": "^15.8.1",
     "storybook": "^8.4.2",
-    "vite": "^5.4.10"
+    "vite": "^5.4.10",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }

@@ -1,0 +1,31 @@
+{
+  "name": "hippods@my-next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@vanilla-extract/css": "^1.16.0",
+    "@vanilla-extract/next-plugin": "^2.4.6",
+    "next": "13.5.7",
+    "react": "^18",
+    "react-dom": "^18"
+  },
+  "devDependencies": {
+    "@hippods/react-components-button": "workspace:*",
+    "@hippods/react-components-layout": "workspace:*",
+    "@hippods/react-hooks-button": "workspace:*",
+    "@hippods/react-hooks-toggle": "workspace:*",
+    "@hippods/themes": "workspace:*",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "13.5.7",
+    "typescript": "^5"
+  }
+}

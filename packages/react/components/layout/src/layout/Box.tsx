@@ -1,7 +1,7 @@
 import * as React from "react"
 import { BoxProps } from "./types"
 import { clsx } from "clsx"
-import { StyleSprinkles } from "../core/style.css"
+import { StyleSprinkles, BaseStyle } from "../core/style.css"
 import { extractSprinkleProps } from "../utils/properties"
 import { vars } from "@hippods/themes"
 const Box = (props: BoxProps, ref: React.Ref<HTMLElement>) => {
@@ -19,6 +19,7 @@ const Box = (props: BoxProps, ref: React.Ref<HTMLElement>) => {
         props.className,
       ]),
       style: {
+        BaseStyle,
         color: color && vars.colors.$scale?.[color]?.[700],
         background: background && vars.colors.$scale?.[background]?.[100],
         ...props.style,

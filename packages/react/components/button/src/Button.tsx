@@ -11,10 +11,8 @@ import {
   spinnerStyle,
 } from "./style.css"
 import { vars } from "@hippods/themes"
-import { useButton } from "@hippods/react-hooks-button"
 
 const Button = (props: ButtonProps, ref: React.Ref<HTMLButtonElement>) => {
-  const { buttonProps } = useButton(props)
   const {
     variant = "solid",
     size = "md",
@@ -38,7 +36,6 @@ const Button = (props: ButtonProps, ref: React.Ref<HTMLButtonElement>) => {
 
   return (
     <button
-      {...buttonProps}
       // 기능 ^
       ref={ref}
       className={clsx([
