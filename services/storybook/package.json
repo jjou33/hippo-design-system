@@ -10,6 +10,7 @@
     "@chromatic-com/storybook": "^3.2.2",
     "@hippods/react-components-layout": "workspace:*",
     "@hippods/react-components-button": "workspace:*",
+    "@hippods/react-components-accordion": "workspace:*",
     "@hippods/react-hooks-button": "workspace:*",
     "@hippods/react-hooks-toggle": "workspace:*",
     "@hippods/themes": "workspace:*",
