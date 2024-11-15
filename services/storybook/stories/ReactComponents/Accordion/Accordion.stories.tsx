@@ -13,7 +13,7 @@ import { Text, Heading } from "@hippods/react-components-layout"
 export default {
   title: "React Components/Accordion",
   parameters: {
-    layout: "centered",
+    layout: "fullscreen",
   },
   tags: ["autodocs"],
 }
