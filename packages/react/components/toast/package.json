@@ -1,5 +1,5 @@
 {
-  "name": "@hippods/react-components-button",
+  "name": "@hippods/react-components-toast",
   "version": "0.0.1",
   "type": "module",
   "main": "dist/index.js",
@@ -37,7 +37,6 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "@hippods/react-hooks-button": "workspace:*",
     "clsx": "^2.1.1"
   }
 }
