@@ -3,8 +3,8 @@ import styles from "./page.module.css"
 import "@hippods/react-components-button/style.css"
 import "@hippods/react-components-layout/style.css"
 import "@hippods/themes/themes.css"
-import { Box, ListItem, List } from "@hippods/react-components-layout"
-import { Button } from "@hippods/react-components-button"
+
+import ClientButton from "@/components/ClientButton"
 
 export default function Home() {
   return (
@@ -20,17 +20,7 @@ export default function Home() {
         />
       </div>
       <div id="next">
-        <Button size="lg" variant="solid" leftIcon="##" color="blue">
-          HELLO
-        </Button>
-        <List variant="unordered" spacing={3}>
-          <ListItem color="orange" fontSize="md">
-            1번
-          </ListItem>
-          <ListItem fontSize="md">2번</ListItem>
-          <ListItem fontSize="md">3번</ListItem>
-        </List>
-        <Box as="button" padding={5} background="green" boxShadow="xl" />
+        <ClientButton />
       </div>
     </main>
   )
