@@ -58,6 +58,7 @@ export const accordionLeftAddonStyle = recipe({
     display: "flex",
     alignItems: "center",
     position: "relative",
+
     zIndex: 1,
   },
   variants: {
