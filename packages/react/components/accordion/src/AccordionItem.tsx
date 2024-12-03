@@ -1,4 +1,4 @@
-import * as React from "react"
+import { forwardRef } from "react"
 import { clsx } from "clsx"
 import { accordionItemStyle } from "./style.css"
 import { AccordionItemProps } from "./types"
@@ -27,5 +27,5 @@ const AccordionItem = (
   )
 }
 
-const _AccordionItem = React.forwardRef(AccordionItem)
+const _AccordionItem = forwardRef(AccordionItem)
 export { _AccordionItem as AccordionItem }

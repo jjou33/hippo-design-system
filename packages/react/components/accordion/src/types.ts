@@ -1,4 +1,8 @@
+import { vars } from "@hippods/themes"
 import * as React from "react"
+
+type Size = "lg" | "md" | "sm" | "xs"
+type Color = keyof typeof vars.colors.$scale
 
 export type AccordionProps = {
   defaultActiveItems?: string[]
@@ -17,3 +21,9 @@ export type AccordionButtonProps = {
 export type AccordionPanelProps = {
   itemName?: string
 } & React.HTMLAttributes<HTMLDivElement>
+
+export type AccordionLeftAddonProps = {
+  color?: Color
+  size?: Size
+  children: React.ReactNode
+}

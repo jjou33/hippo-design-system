@@ -6,7 +6,12 @@ import "@hippods/themes/themes.css"
 
 import ClientButton from "@/components/ClientButton"
 
-export default function Home() {
+export default async function Home() {
+  // const res = await fetch("https://jsonplaceholder.typicode.com/posts/1", {
+  //   cache: "no-store", // 서버에서 매번 새 데이터를 가져옵니다.
+  // })
+  // const post = await res.json()
+
   return (
     <main>
       <div className={styles.center}>

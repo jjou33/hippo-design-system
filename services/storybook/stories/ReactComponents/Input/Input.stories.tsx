@@ -20,8 +20,8 @@ export const InputStory = {
 
 export const InputGroupStory = {
   render: () => (
-    <InputGroup size="lg" color="red">
-      <InputLeftAddon>$</InputLeftAddon>
+    <InputGroup size="xs" color="red">
+      <InputLeftAddon>🔇</InputLeftAddon>
       <Input placeholder="dd" />
     </InputGroup>
   ),

@@ -1,8 +1,7 @@
-import { useState } from "react"
 import AccordionContext from "./AccordionContext"
+import { useState, forwardRef } from "react"
 import { AccordionProps } from "./types"
 import { clsx } from "clsx"
-import * as React from "react"
 import { accordionStyle } from "./style.css"
 
 const Accordion = (props: AccordionProps, ref: React.Ref<HTMLDivElement>) => {
@@ -32,5 +31,5 @@ const Accordion = (props: AccordionProps, ref: React.Ref<HTMLDivElement>) => {
   )
 }
 
-const _Accordion = React.forwardRef(Accordion)
+const _Accordion = forwardRef(Accordion)
 export { _Accordion as Accordion }

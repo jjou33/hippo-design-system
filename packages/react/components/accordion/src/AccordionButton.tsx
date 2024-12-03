@@ -19,7 +19,7 @@ const AccordionButton = (
       setActiveItem(itemName)
       onClick?.(event)
     },
-    [itemName, setActiveItem],
+    [itemName, onClick, setActiveItem],
   )
 
   const { buttonProps } = useButton({
