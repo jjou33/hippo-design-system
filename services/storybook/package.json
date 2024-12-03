@@ -15,6 +15,7 @@
     "@hippods/react-components-layout": "workspace:*",
     "@hippods/react-components-select": "workspace:*",
     "@hippods/react-components-toast": "workspace:*",
+    "@hippods/react-components-card": "workspace:*",
     "@hippods/react-hooks-button": "workspace:*",
     "@hippods/react-hooks-toggle": "workspace:*",
     "@hippods/themes": "workspace:*",
