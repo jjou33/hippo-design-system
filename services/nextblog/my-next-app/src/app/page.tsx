@@ -1,6 +1,5 @@
 import Image from "next/image"
 import styles from "./page.module.css"
-import "@hippods/react-components-button/style.css"
 import "@hippods/react-components-layout/style.css"
 import "@hippods/themes/themes.css"
 

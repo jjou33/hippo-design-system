@@ -6,7 +6,7 @@ import {
   AccordionButton,
   AccordionPanel,
   AccordionLeftAddon,
-} from "@hippods/react-components-accordion"
+} from "@hippods/react-components-interactive"
 import { Text, Heading } from "@hippods/react-components-layout"
 
 export default function ClientButton() {

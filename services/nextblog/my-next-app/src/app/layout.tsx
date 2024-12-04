@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
-import "@hippods/react-components-button/style.css"
 import "@hippods/react-components-layout/style.css"
-import "@hippods/react-components-accordion/style.css"
+import "@hippods/react-components-interactive/style.css"
 import "@hippods/themes/themes.css"
 
 export const metadata: Metadata = {

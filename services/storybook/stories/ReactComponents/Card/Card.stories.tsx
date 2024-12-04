@@ -1,7 +1,7 @@
 import React, { useRef } from "react"
 import { Meta, StoryObj } from "@storybook/react"
-import "@hippods/react-components-card/style.css"
-import { Card } from "@hippods/react-components-card"
+import { Card } from "@hippods/react-components-interactive"
+import "@hippods/react-components-interactive/style.css"
 
 export default {
   title: "React Components/Card",

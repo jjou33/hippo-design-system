@@ -1,6 +1,6 @@
 import React from "react"
-import "@hippods/react-components-button/style.css"
-import { Button as _Button } from "@hippods/react-components-button"
+import "@hippods/react-components-interactive/style.css"
+import { Button as _Button } from "@hippods/react-components-interactive"
 import "@hippods/react-components-layout/style.css"
 import { Text } from "@hippods/react-components-layout"
 import { vars } from "@hippods/themes"

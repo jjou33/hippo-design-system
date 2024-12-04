@@ -1,9 +1,9 @@
-import "@hippods/react-components-button/style.css"
-import { Button } from "@hippods/react-components-button"
+import "@hippods/react-components-interactive/style.css"
+import { Button } from "@hippods/react-components-interactive"
 import React from "react"
 
-import { ToastProvider, useToast } from "@hippods/react-components-toast"
-import "@hippods/react-components-toast/style.css"
+import { ToastProvider, useToast } from "@hippods/react-components-interactive"
+import "@hippods/react-components-interactive/style.css"
 
 export default {
   title: "React Components/Toast",

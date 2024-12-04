@@ -1,5 +1,5 @@
 {
-  "name": "@hippods/react-components-input",
+  "name": "@hippods/react-components-interactive",
   "version": "0.0.1",
   "type": "module",
   "main": "dist/index.js",
@@ -38,6 +38,8 @@
   },
   "dependencies": {
     "@hippods/react-hooks-input": "workspace:*",
+    "@hippods/react-hooks-button": "workspace:*",
+    "@hippods/react-hooks-select": "workspace:^",
     "clsx": "^2.1.1"
   }
 }

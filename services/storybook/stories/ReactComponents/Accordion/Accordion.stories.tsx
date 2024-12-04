@@ -1,11 +1,11 @@
-import "@hippods/react-components-accordion/style.css"
+import "@hippods/react-components-interactive/style.css"
 import {
   Accordion,
   AccordionItem,
   AccordionButton,
   AccordionPanel,
   AccordionLeftAddon,
-} from "@hippods/react-components-accordion"
+} from "@hippods/react-components-interactive"
 import React from "react"
 
 import "@hippods/react-components-layout/style.css"

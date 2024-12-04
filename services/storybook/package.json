@@ -10,12 +10,8 @@
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.2",
     "@hippods/react-components-accordion": "workspace:*",
-    "@hippods/react-components-button": "workspace:*",
-    "@hippods/react-components-input": "workspace:*",
     "@hippods/react-components-layout": "workspace:*",
-    "@hippods/react-components-select": "workspace:*",
-    "@hippods/react-components-toast": "workspace:*",
-    "@hippods/react-components-card": "workspace:*",
+    "@hippods/react-components-interactive": "workspace:*",
     "@hippods/react-hooks-button": "workspace:*",
     "@hippods/react-hooks-toggle": "workspace:*",
     "@hippods/themes": "workspace:*",

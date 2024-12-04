@@ -1,5 +1,5 @@
-import "@hippods/react-components-select/style.css"
-import { Select } from "@hippods/react-components-select"
+import "@hippods/react-components-interactive/style.css"
+import { Select } from "@hippods/react-components-interactive"
 import React from "react"
 
 import "@hippods/react-components-layout/style.css"

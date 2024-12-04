@@ -1,10 +1,10 @@
 import React from "react"
-import "@hippods/react-components-input/style.css"
+import "@hippods/react-components-interactive/style.css"
 import {
   Input,
   InputGroup,
   InputLeftAddon,
-} from "@hippods/react-components-input"
+} from "@hippods/react-components-interactive"
 
 export default {
   title: "React Components/Input",

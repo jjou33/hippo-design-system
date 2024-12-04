@@ -106,100 +106,17 @@ importers:
         specifier: ^5.6.3
         version: 5.6.3
 
-  packages/react/components/button:
+  packages/react/components/interactive:
     dependencies:
       '@hippods/react-hooks-button':
         specifier: workspace:*
         version: link:../../hooks/button
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-    devDependencies:
-      '@hippods/esbuild-config':
-        specifier: workspace:*
-        version: link:../../../esbuild-config
-      '@hippods/themes':
-        specifier: workspace:*
-        version: link:../../../themes
-      '@types/react':
-        specifier: ^18.3.10
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18.3.0
-        version: 18.3.1
-      '@vanilla-extract/css':
-        specifier: ^1.16.0
-        version: 1.16.0
-      '@vanilla-extract/dynamic':
-        specifier: ^2.1.2
-        version: 2.1.2
-      '@vanilla-extract/esbuild-plugin':
-        specifier: ^2.3.11
-        version: 2.3.11(esbuild@0.18.20)
-      '@vanilla-extract/recipes':
-        specifier: ^0.5.5
-        version: 0.5.5(@vanilla-extract/css@1.16.0)
-      '@vanilla-extract/sprinkles':
-        specifier: ^1.6.3
-        version: 1.6.3(@vanilla-extract/css@1.16.0)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
-
-  packages/react/components/card:
-    dependencies:
-      clsx:
-        specifier: ^2.1.1
-        version: 2.1.1
-    devDependencies:
-      '@hippods/esbuild-config':
-        specifier: workspace:*
-        version: link:../../../esbuild-config
-      '@hippods/themes':
-        specifier: workspace:*
-        version: link:../../../themes
-      '@types/react':
-        specifier: ^18.3.10
-        version: 18.3.12
-      '@types/react-dom':
-        specifier: ^18.3.0
-        version: 18.3.1
-      '@vanilla-extract/css':
-        specifier: ^1.16.0
-        version: 1.16.0
-      '@vanilla-extract/dynamic':
-        specifier: ^2.1.2
-        version: 2.1.2
-      '@vanilla-extract/esbuild-plugin':
-        specifier: ^2.3.11
-        version: 2.3.11(esbuild@0.18.20)
-      '@vanilla-extract/recipes':
-        specifier: ^0.5.5
-        version: 0.5.5(@vanilla-extract/css@1.16.0)
-      '@vanilla-extract/sprinkles':
-        specifier: ^1.6.3
-        version: 1.6.3(@vanilla-extract/css@1.16.0)
-      react:
-        specifier: ^18.3.1
-        version: 18.3.1
-      react-dom:
-        specifier: ^18.3.1
-        version: 18.3.1(react@18.3.1)
-      typescript:
-        specifier: ^5.6.3
-        version: 5.6.3
-
-  packages/react/components/input:
-    dependencies:
       '@hippods/react-hooks-input':
         specifier: workspace:*
         version: link:../../hooks/input
+      '@hippods/react-hooks-select':
+        specifier: workspace:^
+        version: link:../../hooks/select
       clsx:
         specifier: ^2.1.1
         version: 2.1.1
@@ -521,9 +438,9 @@ importers:
       '@hippods/react-components-accordion':
         specifier: workspace:*
         version: link:../../../packages/react/components/accordion
-      '@hippods/react-components-button':
+      '@hippods/react-components-interactive':
         specifier: workspace:*
-        version: link:../../../packages/react/components/button
+        version: link:../../../packages/react/components/interactive
       '@hippods/react-components-layout':
         specifier: workspace:*
         version: link:../../../packages/react/components/layout
@@ -563,21 +480,12 @@ importers:
       '@hippods/react-components-accordion':
         specifier: workspace:*
         version: link:../../packages/react/components/accordion
-      '@hippods/react-components-button':
+      '@hippods/react-components-interactive':
         specifier: workspace:*
-        version: link:../../packages/react/components/button
-      '@hippods/react-components-card':
-        specifier: workspace:*
-        version: link:../../packages/react/components/card
-      '@hippods/react-components-input':
-        specifier: workspace:*
-        version: link:../../packages/react/components/input
+        version: link:../../packages/react/components/interactive
       '@hippods/react-components-layout':
         specifier: workspace:*
         version: link:../../packages/react/components/layout
-      '@hippods/react-components-select':
-        specifier: workspace:*
-        version: link:../../packages/react/components/select
       '@hippods/react-components-toast':
         specifier: workspace:*
         version: link:../../packages/react/components/toast
