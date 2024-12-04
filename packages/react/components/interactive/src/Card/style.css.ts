@@ -1,14 +1,20 @@
 // Card.css.ts
-import { style } from "@vanilla-extract/css"
+import { createVar, style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
+export const maxWidthVar = createVar()
 // 기본 카드 스타일
+
 export const cardBase = style({
+  vars: {
+    [maxWidthVar]: "100%",
+  },
   borderRadius: "8px",
   backgroundColor: "#fff", // 기본 배경색
   display: "flex",
   flexDirection: "column",
   overflow: "hidden",
+  maxWidth: maxWidthVar,
   transition: "transform 0.2s, box-shadow 0.2s",
   selectors: {
     "&:hover": {

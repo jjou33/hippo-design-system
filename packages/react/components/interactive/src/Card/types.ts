@@ -4,6 +4,7 @@ export interface CardRootProps {
   children: ReactNode
   className?: string
   variant?: "elevated" | "outlined"
+  maxW?: string | number
 }
 
 export interface CardHeaderProps {

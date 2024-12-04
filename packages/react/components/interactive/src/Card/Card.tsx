@@ -12,7 +12,9 @@ import {
   headerStyle,
   cardVariants,
   imageStyle,
+  maxWidthVar,
 } from "./style.css"
+import { assignInlineVars } from "@vanilla-extract/dynamic"
 import { clsx } from "clsx"
 
 // 카드 이미지 컴포넌트
@@ -23,8 +25,14 @@ const CardImage = forwardRef<HTMLImageElement, { src: string; alt: string }>(
 )
 
 const CardRoot = forwardRef<HTMLDivElement, CardRootProps>(
-  ({ children, className, variant = "elevated" }, ref) => (
-    <div ref={ref} className={clsx([cardVariants({ variant }), className])}>
+  ({ children, className, variant = "elevated", maxW }, ref) => (
+    <div
+      ref={ref}
+      className={clsx([cardVariants({ variant }), className])}
+      style={assignInlineVars({
+        [maxWidthVar]: typeof maxW === "number" ? `${maxW}px` : maxW || "100%",
+      })}
+    >
       {children}
     </div>
   ),

@@ -18,7 +18,6 @@
   "devDependencies": {
     "@hippods/react-components-interactive": "workspace:*",
     "@hippods/react-components-layout": "workspace:*",
-    "@hippods/react-components-accordion": "workspace:*",
     "@hippods/react-hooks-button": "workspace:*",
     "@hippods/react-hooks-toggle": "workspace:*",
     "@hippods/themes": "workspace:*",

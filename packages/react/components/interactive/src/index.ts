@@ -1,4 +1,4 @@
-export { Card } from "./Card"
+export { Card } from "./Card/Card"
 export type {
   CardBodyProps,
   CardFooterProps,

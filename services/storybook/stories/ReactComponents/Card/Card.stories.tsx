@@ -29,6 +29,7 @@ type CardStoryArgs = {
   body: string
   variant: "elevated" | "outlined"
   imageUrl: string
+  maxW: string | number
 }
 
 const CardComponent: React.FC<CardStoryArgs> = ({
@@ -36,6 +37,7 @@ const CardComponent: React.FC<CardStoryArgs> = ({
   body,
   variant,
   imageUrl,
+  maxW,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null)
 
@@ -46,7 +48,7 @@ const CardComponent: React.FC<CardStoryArgs> = ({
   }
 
   return (
-    <Card.Root ref={cardRef} variant={variant}>
+    <Card.Root ref={cardRef} variant={variant} maxW={maxW}>
       <Card.Image src={imageUrl} alt={header} /> {/* 이미지 추가 */}
       <Card.Header>{header}</Card.Header>
       <Card.Body>{body}</Card.Body>
@@ -63,6 +65,7 @@ export const CardStory: StoryObj<CardStoryArgs> = {
     body: "This is the Card Body. You can add any content here.",
     variant: "elevated", // 기본값 설정
     imageUrl: "https://via.placeholder.com/300", // 기본 이미지 URL
+    maxW: 200,
   },
   render: (args) => <CardComponent {...args} />,
 }
