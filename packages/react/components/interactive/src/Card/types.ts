@@ -5,6 +5,7 @@ export interface CardRootProps {
   className?: string
   variant?: "elevated" | "outlined"
   maxW?: string | number
+  horizontal?: string
 }
 
 export interface CardHeaderProps {
@@ -19,4 +20,19 @@ export interface CardBodyProps {
 export interface CardFooterProps {
   children: ReactNode
   className?: string
+}
+
+export interface CardTitleProps {
+  children: string
+  className?: string
+  mt?: string
+  mb?: string
+  ml?: string
+  mr?: string
+}
+
+export interface CardDescriptionProps {
+  children: string
+  color?: string
+  fontSize?: string
 }

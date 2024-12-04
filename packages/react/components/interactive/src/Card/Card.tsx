@@ -4,6 +4,8 @@ import {
   CardFooterProps,
   CardHeaderProps,
   CardRootProps,
+  CardTitleProps,
+  CardDescriptionProps,
 } from "./types"
 
 import {
@@ -13,6 +15,8 @@ import {
   cardVariants,
   imageStyle,
   maxWidthVar,
+  descriptionStyle,
+  horizontalVar,
 } from "./style.css"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import { clsx } from "clsx"
@@ -25,19 +29,38 @@ const CardImage = forwardRef<HTMLImageElement, { src: string; alt: string }>(
 )
 
 const CardRoot = forwardRef<HTMLDivElement, CardRootProps>(
-  ({ children, className, variant = "elevated", maxW }, ref) => (
+  ({ children, className, variant = "elevated", maxW, horizontal }, ref) => (
     <div
       ref={ref}
       className={clsx([cardVariants({ variant }), className])}
-      style={assignInlineVars({
-        [maxWidthVar]: typeof maxW === "number" ? `${maxW}px` : maxW || "100%",
-      })}
+      style={{
+        ...assignInlineVars({
+          [maxWidthVar]:
+            typeof maxW === "number" ? `${maxW}px` : maxW || "100%",
+          [horizontalVar]: horizontal,
+        }),
+      }}
     >
       {children}
     </div>
   ),
 )
 
+const CardTitle = forwardRef<HTMLDivElement, CardTitleProps>(
+  ({ children, className }, ref) => (
+    <div ref={ref} className={clsx([headerStyle, className])}>
+      {children}
+    </div>
+  ),
+)
+
+const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
+  ({ children }, ref) => (
+    <p ref={ref} className={clsx([descriptionStyle])}>
+      {children}
+    </p>
+  ),
+)
 const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className }, ref) => (
     <div ref={ref} className={clsx([headerStyle, className])}>
@@ -49,9 +72,8 @@ const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
 const CardBody = forwardRef<
   HTMLDivElement,
   CardBodyProps & { imageUrl?: string }
->(({ children, className, imageUrl }, ref) => (
+>(({ children, className }, ref) => (
   <div ref={ref} className={clsx([bodyStyle, className])}>
-    {imageUrl && <img src={imageUrl} alt="Card Image" className={imageStyle} />}
     {children}
   </div>
 ))
@@ -69,6 +91,8 @@ CardHeader.displayName = "CardHeader"
 CardBody.displayName = "CardBody"
 CardFooter.displayName = "CardFooter"
 CardImage.displayName = "CardImage"
+CardTitle.displayName = "CardTitle"
+CardDescription.displayName = "CardDescription"
 
 export const Card = {
   Root: CardRoot,
@@ -76,4 +100,6 @@ export const Card = {
   Header: CardHeader,
   Body: CardBody,
   Footer: CardFooter,
+  Title: CardTitle,
+  Description: CardDescription,
 }

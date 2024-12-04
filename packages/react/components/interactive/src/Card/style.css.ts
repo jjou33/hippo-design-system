@@ -3,16 +3,18 @@ import { createVar, style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
 export const maxWidthVar = createVar()
+export const horizontalVar = createVar()
 // 기본 카드 스타일
 
 export const cardBase = style({
   vars: {
     [maxWidthVar]: "100%",
+    [horizontalVar]: "column",
   },
   borderRadius: "8px",
   backgroundColor: "#fff", // 기본 배경색
   display: "flex",
-  flexDirection: "column",
+  flexDirection: horizontalVar,
   overflow: "hidden",
   maxWidth: maxWidthVar,
   transition: "transform 0.2s, box-shadow 0.2s",
@@ -24,6 +26,16 @@ export const cardBase = style({
   },
 })
 
+export const titleStyle = style({
+  fontWeight: "bold",
+  fontSize: "12px",
+  lineHeight: "1.75rem",
+})
+
+export const descriptionStyle = style({
+  color: "black",
+  fontSize: "12px",
+})
 // 헤더 스타일
 export const headerStyle = style({
   padding: "16px",
@@ -43,7 +55,6 @@ export const imageStyle = style({
   width: "auto", // 카드 크기에 맞게 이미지를 꽉 채움
   height: "auto", // 자동 높이 조정
   borderRadius: "8px 8px 0 0", // 이미지의 모서리 둥글게 처리 (상단)
-  marginBottom: "16px", // 이미지와 본문 간의 간격을 추가
   objectFit: "cover", // 이미지 비율을 유지하면서 크기를 맞춤 (잘리지 않게)
   maxHeight: "300px", // 최대 높이 제한
 })
