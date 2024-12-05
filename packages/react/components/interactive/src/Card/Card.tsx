@@ -6,6 +6,7 @@ import {
   CardRootProps,
   CardTitleProps,
   CardDescriptionProps,
+  CardImageProps,
 } from "./types"
 
 import {
@@ -15,28 +16,37 @@ import {
   cardVariants,
   imageStyle,
   maxWidthVar,
+  maxHeightVar,
   descriptionStyle,
   horizontalVar,
 } from "./style.css"
 import { assignInlineVars } from "@vanilla-extract/dynamic"
 import { clsx } from "clsx"
 
-// 카드 이미지 컴포넌트
-const CardImage = forwardRef<HTMLImageElement, { src: string; alt: string }>(
-  ({ src, alt }, ref) => (
-    <img ref={ref} src={src} alt={alt} className={imageStyle} />
-  ),
+export const CardImage: React.FC<CardImageProps> = ({ src, alt }) => (
+  <img className={clsx([imageStyle])} src={src} alt={alt} />
 )
 
 const CardRoot = forwardRef<HTMLDivElement, CardRootProps>(
-  ({ children, className, variant = "elevated", maxW, horizontal }, ref) => (
+  (
+    {
+      children,
+      className,
+      variant = "elevated",
+      maxW,
+      maxH,
+      horizontal,
+    }: CardRootProps,
+    ref,
+  ) => (
     <div
       ref={ref}
       className={clsx([cardVariants({ variant }), className])}
+      data-horizontal={horizontal} // data-horizontal 속성 추가
       style={{
         ...assignInlineVars({
-          [maxWidthVar]:
-            typeof maxW === "number" ? `${maxW}px` : maxW || "100%",
+          [maxWidthVar]: typeof maxW === "number" ? `${maxW}px` : maxW,
+          [maxHeightVar]: typeof maxH === "number" ? `${maxH}px` : maxH,
           [horizontalVar]: horizontal,
         }),
       }}
@@ -46,21 +56,14 @@ const CardRoot = forwardRef<HTMLDivElement, CardRootProps>(
   ),
 )
 
-const CardTitle = forwardRef<HTMLDivElement, CardTitleProps>(
-  ({ children, className }, ref) => (
-    <div ref={ref} className={clsx([headerStyle, className])}>
-      {children}
-    </div>
-  ),
+const CardTitle: React.FC<CardTitleProps> = ({ children, className }) => (
+  <div className={clsx([headerStyle, className])}>{children}</div>
 )
 
-const CardDescription = forwardRef<HTMLParagraphElement, CardDescriptionProps>(
-  ({ children }, ref) => (
-    <p ref={ref} className={clsx([descriptionStyle])}>
-      {children}
-    </p>
-  ),
+const CardDescription: React.FC<CardDescriptionProps> = ({ children }) => (
+  <div className={clsx([descriptionStyle])}>{children}</div>
 )
+
 const CardHeader = forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ children, className }, ref) => (
     <div ref={ref} className={clsx([headerStyle, className])}>

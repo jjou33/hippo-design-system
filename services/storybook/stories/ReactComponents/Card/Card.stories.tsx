@@ -33,7 +33,8 @@ type CardStoryArgs = {
   body: string
   variant: "elevated" | "outlined"
   imageUrl: string
-  maxW: string | number
+  maxW?: string | number
+  maxH?: string | number
   horizontal: "column" | "row"
 }
 
@@ -72,6 +73,7 @@ const HorizonCardComponent: React.FC<CardStoryArgs> = ({
   variant,
   imageUrl,
   maxW,
+  maxH,
   horizontal,
 }) => {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -87,6 +89,7 @@ const HorizonCardComponent: React.FC<CardStoryArgs> = ({
       ref={cardRef}
       variant={variant}
       maxW={maxW}
+      maxH={maxH}
       horizontal={horizontal}
     >
       <Card.Image src={imageUrl} alt={header} /> {/* 이미지 추가 */}
@@ -118,8 +121,7 @@ export const HorizontalCardStory: StoryObj<CardStoryArgs> = {
     header: "This is the Card Header",
     body: "This is the Card Body. You can add any content here.",
     variant: "elevated", // 기본값 설정
-    imageUrl: "https://via.placeholder.com/300", // 기본 이미지 URL
-    maxW: "100%",
+    imageUrl: "https://picsum.photos/200/200?random=1", // 기본 이미지 URL
     horizontal: "column",
   },
   render: (args) => <HorizonCardComponent {...args} />,

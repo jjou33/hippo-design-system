@@ -3,12 +3,14 @@ import { createVar, style } from "@vanilla-extract/css"
 import { recipe } from "@vanilla-extract/recipes"
 
 export const maxWidthVar = createVar()
+export const maxHeightVar = createVar()
 export const horizontalVar = createVar()
 // 기본 카드 스타일
 
 export const cardBase = style({
   vars: {
-    [maxWidthVar]: "100%",
+    [maxWidthVar]: "300px",
+    [maxHeightVar]: "600px",
     [horizontalVar]: "column",
   },
   borderRadius: "8px",
@@ -17,11 +19,18 @@ export const cardBase = style({
   flexDirection: horizontalVar,
   overflow: "hidden",
   maxWidth: maxWidthVar,
+  maxHeight: maxHeightVar,
+  cursor: "pointer",
   transition: "transform 0.2s, box-shadow 0.2s",
   selectors: {
     "&:hover": {
       transform: "translateY(-4px)",
       boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+    },
+
+    '&[data-horizontal="row"]': {
+      maxWidth: "600px",
+      maxHeight: "300px",
     },
   },
 })
@@ -50,14 +59,27 @@ export const bodyStyle = style({
   flexGrow: 1,
 })
 
-// 이미지 스타일
 export const imageStyle = style({
-  width: "auto", // 카드 크기에 맞게 이미지를 꽉 채움
-  height: "auto", // 자동 높이 조정
-  borderRadius: "8px 8px 0 0", // 이미지의 모서리 둥글게 처리 (상단)
-  objectFit: "cover", // 이미지 비율을 유지하면서 크기를 맞춤 (잘리지 않게)
-  maxHeight: "300px", // 최대 높이 제한
+  position: "relative",
+  display: "inline-block",
+  overflow: "hidden",
+  width: "auto", // 기본 너비
+  height: "auto", // 기본 높이
+  borderRadius: "8px 8px 0 0", // 필요에 따라 둥글게 처리
+
+  minWidth: 100,
+  minHeight: 100,
+  objectFit: "cover",
+  selectors: {
+    // 내부 img 태그 스타일
+    '[data-horizontal="row"] &': {
+      borderRadius: "8px 0 0 8px", // 부모가 row일 때 왼쪽 둥글게
+      objectFit: "cover",
+      aspectRatio: "1/1",
+    },
+  },
 })
+// 이미지 스타일
 
 // 푸터 스타일
 export const footerStyle = style({
@@ -77,6 +99,11 @@ export const cardVariants = recipe({
         border: "1px solid rgba(0, 0, 0, 0.1)", // 외곽선만 추가
         boxShadow: "none", // 그림자는 제거
       },
+    },
+    size: {
+      sm: {},
+      md: {},
+      lg: {},
     },
   },
   defaultVariants: {

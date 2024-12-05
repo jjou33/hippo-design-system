@@ -1,10 +1,10 @@
-import { ReactNode } from "react"
+import { PropsWithChildren, ReactNode } from "react"
 
-export interface CardRootProps {
-  children: ReactNode
+export interface CardRootProps extends PropsWithChildren {
   className?: string
   variant?: "elevated" | "outlined"
   maxW?: string | number
+  maxH?: string | number
   horizontal?: string
 }
 
@@ -13,6 +13,11 @@ export interface CardHeaderProps {
   className?: string
 }
 
+export interface CardImageProps {
+  src: string
+  alt: string
+  size?: number | string // 크기를 숫자(px) 또는 문자열(%)로 받음
+}
 export interface CardBodyProps {
   children: ReactNode
   className?: string
