@@ -4,6 +4,7 @@ import "@hippods/react-components-interactive/style.css"
 import "@hippods/themes/themes.css"
 import { Metadata } from "next"
 import { ThemeScript } from "@/shared/components/ThemeScript"
+import { QueryProvider } from "@/shared/components/QueryProvider"
 
 export const metadata: Metadata = {
   title: "HIPPO-DEV",
@@ -16,9 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <body>
+      <body suppressHydrationWarning>
         <ThemeScript />
-        {children}
+        <QueryProvider>{children}</QueryProvider>
       </body>
     </html>
   )
