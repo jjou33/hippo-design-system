@@ -28,7 +28,7 @@ export type GetVideosPopularListResponse = {
 
 export const getVideosPopularListPath = "api/videos/popular-list"
 
-export const getVideosPopularListUrl = `${API_BASE_URL}/api/videos/popular-list`
+export const getVideosPopularListUrl = `${API_BASE_URL}/${getVideosPopularListPath}`
 
 export const getVideosPopularList = async (
   params: GetVideosPopularListRequestParams,
