@@ -1,4 +1,4 @@
-import type { Config } from "tailwindcss";
+import Config from "./services/project/tailwind.config";
 
 export const shadows = {
   xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
@@ -14,35 +14,4 @@ export const shadows = {
   outline: "0 0 0 3px rgba(66, 153, 225, 0.6)",
 };
 
-const config: Config = {
-  content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
-  theme: {
-    screens: {
-      lg: "780px",
-    },
-    extend: {
-      colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-      },
-      boxShadow: shadows,
-      borderRadius: {
-        "card-top": "0.375rem 0.375rem 0 0",
-      },
-      margin: {
-        "68": "16.370rem",
-      },
-    },
-
-    container: {
-      center: true,
-      padding: "16px",
-    },
-  },
-  plugins: [],
-};
-export default config;
+export default Config;

@@ -23,6 +23,39 @@ module.exports = {
     "react-hooks/exhaustive-deps": "warn",
     "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
+    "no-undef": "off",
+    "spaced-comment": "off",
+
+    "tailwindcss/classnames-order": [
+      "warn",
+      {
+        callees: ["cva", "cn"],
+      },
+    ],
+    "tailwindcss/enforces-negative-arbitrary-values": [
+      "warn",
+      {
+        callees: ["cva", "cn"],
+      },
+    ],
+    "tailwindcss/enforces-shorthand": [
+      "warn",
+      {
+        callees: ["cva", "cn"],
+      },
+    ],
+    "tailwindcss/no-contradicting-classname": [
+      "warn",
+      {
+        callees: ["cva", "cn"],
+      },
+    ],
+    "tailwindcss/no-custom-classname": [
+      "warn",
+      {
+        callees: ["cva", "cn"],
+      },
+    ],
     "comma-dangle": "off",
     "react/display-name": "off",
     "no-empty-function": "off",

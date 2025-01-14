@@ -1,10 +1,11 @@
-import { Post } from '@/types';
-import { cn } from '@/utils/style';
-import Image from 'next/image';
-import Link from 'next/link';
-import { FC } from 'react';
+import { Post } from "@/types";
+import { cn } from "@/utils/style";
 
-type PostCardProps = Omit<Post, 'tags'> & {
+import Image from "next/image";
+import Link from "next/link";
+import { FC } from "react";
+
+type PostCardProps = Omit<Post, "tags"> & {
   tags: string;
   className?: string;
 };
@@ -16,11 +17,15 @@ const PostCard: FC<PostCardProps> = ({
   className,
 }) => {
   return (
-    <Link href={`/posts/${id}`} className={cn('bg-white', className)}>
-      <div className="relative h-full overflow-hidden rounded-md border border-gray-300 shadow-lg transition-transform duration-300 hover:scale-105">
+    <Link href={`/posts/${id}`} className={cn("bg-white", className)}>
+      <div
+        className={cn(
+          "relative h-full overflow-hidden rounded-md border border-gray-300 bg-blackAlpha-100 shadow-lg transition-transform duration-300 hover:scale-105",
+        )}
+      >
         <div className="relative aspect-[1.8/1] w-full">
           <Image
-            src={preview_image_url ?? '/thumbnail.svg'}
+            src={preview_image_url ?? "/thumbnail.svg"}
             fill
             sizes="360px"
             alt={title}

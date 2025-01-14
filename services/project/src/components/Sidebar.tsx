@@ -12,6 +12,7 @@ import {
   AccordionPanel,
 } from "@hippods/react-components-interactive";
 import { Heading, Text } from "@hippods/react-components-layout";
+import { vars } from "@hippods/themes";
 
 type SidebarProps = {
   close: () => void;
@@ -20,7 +21,7 @@ type SidebarProps = {
 
 const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
   const { data: existingCategories } = useCategories();
-
+  console.log("HELLO : ", { ...vars.colors.$scale.blackAlpha });
   return (
     <div
       className={cn(
