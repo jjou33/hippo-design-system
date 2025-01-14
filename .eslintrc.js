@@ -13,6 +13,7 @@ module.exports = {
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
+    "plugin:tailwindcss/recommended",
     "plugin:storybook/recommended",
     "prettier",
   ],
@@ -48,4 +49,4 @@ module.exports = {
       typescript: {},
     },
   },
-}
+};
