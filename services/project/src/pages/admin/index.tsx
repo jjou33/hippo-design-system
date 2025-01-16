@@ -1,9 +1,9 @@
-import Button from '@/components/Button';
-import Input from '@/components/Input';
-import { createClient } from '@/utils/supabase/client';
-import { UserResponse } from '@supabase/supabase-js';
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useRef, useState } from 'react';
+import Button from "@/components/Button";
+import Input from "@/components/Input";
+import { createClient } from "@/utils/supabase/client";
+import { UserResponse } from "@supabase/supabase-js";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useRef, useState } from "react";
 
 const supabase = createClient();
 
@@ -16,12 +16,12 @@ export default function Admin() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const response = await supabase.auth.signInWithPassword({
-      email: emailRef.current?.value ?? '',
-      password: passwordRef.current?.value ?? '',
+      email: emailRef.current?.value ?? "",
+      password: passwordRef.current?.value ?? "",
     });
 
     if (!response.data.user) {
-      return alert('로그인 실패');
+      return alert("로그인 실패");
     }
 
     router.refresh();
@@ -35,7 +35,7 @@ export default function Admin() {
   }, []);
   return (
     <div className="container flex flex-col pb-20 pt-12">
-      {!!userResponse?.data.user ? (
+      {userResponse?.data.user ? (
         <div className="flex flex-col gap-2">
           <div className="mb-8">
             <b>{userResponse.data.user.email}</b>
@@ -43,7 +43,7 @@ export default function Admin() {
           <Button
             type="button"
             className="mt-4"
-            onClick={() => router.push('/write')}
+            onClick={() => router.push("/write")}
           >
             글쓰러 가기
           </Button>
@@ -52,7 +52,7 @@ export default function Admin() {
             className="mt-4"
             onClick={() => {
               supabase.auth.signOut();
-              router.push('/');
+              router.push("/");
             }}
           >
             로그아웃
