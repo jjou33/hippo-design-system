@@ -17,10 +17,10 @@ const PostCard: FC<PostCardProps> = ({
   className,
 }) => {
   return (
-    <Link href={`/posts/${id}`} className={cn("bg-white", className)}>
+    <Link href={`/posts/${id}`} className={cn("", className)}>
       <div
         className={cn(
-          "relative h-full overflow-hidden rounded-md border border-gray-300 bg-blackAlpha-100 shadow-lg transition-transform duration-300 hover:scale-105",
+          "relative h-full overflow-hidden rounded-md border border-gray-300 shadow-lg transition-transform duration-300 hover:scale-105",
         )}
       >
         <div className="relative aspect-[1.8/1] w-full">

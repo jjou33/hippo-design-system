@@ -1,34 +1,42 @@
-import { MardownViewer } from '@/components/Markdown';
-import type { Post } from '@/types';
-import { createClient } from '@/utils/supabase/server';
-import { format } from 'date-fns';
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from 'next';
-import Image from 'next/image';
-import Link from 'next/link';
+import { MardownViewer } from "@/components/Markdown";
+import type { Post } from "@/types";
+import { createClient } from "@/utils/supabase/server";
+import { format } from "date-fns";
+import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import Image from "next/image";
+import Link from "next/link";
 
 const supabase = createClient({});
 
 export const getStaticPaths = (async () => {
-  const { data } = await (await supabase).from('Post').select('id');
+  const { data } = await (await supabase).from("Post").select("id");
 
   return {
     paths: data?.map(({ id }) => ({ params: { id: String(id) } })) ?? [],
-    fallback: 'blocking',
+    fallback: "blocking",
   };
 }) satisfies GetStaticPaths;
 
 export const getStaticProps = (async (context) => {
   const { data } = await (await supabase)
-    .from('Post')
-    .select('*')
-    .eq('id', Number(context.params?.id));
+    .from("Post")
+    .select("*")
+    .eq("id", Number(context.params?.id));
 
   if (!data || !data[0]) {
     return { notFound: true };
   }
 
-  const { id, title, category, tags, content, created_at, preview_image_url } =
-    data[0];
+  const {
+    id,
+    title,
+    category,
+    tags,
+    content,
+    created_at,
+    preview_image_url,
+    subcategory,
+  } = data[0];
 
   return {
     props: {
@@ -39,6 +47,7 @@ export const getStaticProps = (async (context) => {
       content,
       created_at,
       preview_image_url,
+      subcategory,
     },
   };
 }) satisfies GetStaticProps<Post>;
@@ -50,6 +59,7 @@ export default function PostPage({
   content,
   created_at,
   preview_image_url,
+  subcategory,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <div className="container flex flex-col gap-8 pb-40 pt-20">
@@ -59,7 +69,7 @@ export default function PostPage({
           href={`/categories/${category}`}
           className="rounded-md bg-slate-800 px-2 py-1 text-sm text-white"
         >
-          {category}
+          {subcategory}
         </Link>
         {tags.map((tag) => (
           <Link
@@ -71,7 +81,7 @@ export default function PostPage({
           </Link>
         ))}
         <div className="text-sm text-gray-500">
-          {format(new Date(created_at), 'yyyy년 M월 d일 hh:mm')}
+          {format(new Date(created_at), "yyyy년 M월 d일 hh:mm")}
         </div>
       </div>
 

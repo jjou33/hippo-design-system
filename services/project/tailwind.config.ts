@@ -1,5 +1,6 @@
 import type { Config } from "tailwindcss";
 import { vars } from "@hippods/themes";
+
 export const shadows = {
   xs: "0 0 0 1px rgba(0, 0, 0, 0.05)",
   sm: "0px 1px 2px 0px rgba(0, 0, 0, 0.05)",
@@ -20,19 +21,23 @@ const config: Config = {
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
+  darkMode: "class",
   theme: {
     screens: {
       lg: "780px",
+      dark: { raw: "(prefers-color-scheme: dark)" },
     },
     extend: {
       colors: {
         ...require("tailwindcss/colors"),
-        background: "var(--background)",
-        foreground: "var(--foreground)",
         blackAlpha: { ...vars.colors.$scale.blackAlpha },
+        gray: { ...vars.colors.$scale.gray },
+        grayText: { ...vars.colors.$scale.grayText },
         red: { ...vars.colors.$scale.red },
         cyan: { ...vars.colors.$scale.cyan },
+        reverseGray: { ...vars.colors.$scale.reverseGray },
       },
+      textColor: {},
       boxShadow: shadows,
       borderRadius: {
         "card-top": "0.375rem 0.375rem 0 0",

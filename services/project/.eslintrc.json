@@ -8,7 +8,7 @@
   "rules": {
     "no-undef": "off",
     "spaced-comment": "off",
-
+    "tailwindcss/no-custom-classname": "off",
     "tailwindcss/classnames-order": [
       "warn",
       {
@@ -28,12 +28,6 @@
       }
     ],
     "tailwindcss/no-contradicting-classname": [
-      "warn",
-      {
-        "callees": ["cva", "cn"]
-      }
-    ],
-    "tailwindcss/no-custom-classname": [
       "warn",
       {
         "callees": ["cva", "cn"]

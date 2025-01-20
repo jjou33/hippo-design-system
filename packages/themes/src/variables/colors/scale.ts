@@ -24,6 +24,18 @@ export const blackAlpha = {
   900: "var(--black-alpha-900)",
 };
 
+export const reverseGray = {
+  50: "var(--reverse-gray-50)",
+  100: "var(--reverse-gray-100)",
+  200: "var(--reverse-gray-200)",
+  300: "var(--reverse-gray-300)",
+  400: "var(--reverse-gray-400)",
+  500: "var(--reverse-gray-500)",
+  600: "var(--reverse-gray-600)",
+  700: "var(--reverse-gray-700)",
+  800: "var(--reverse-gray-800)",
+  900: "var(--reverse-gray-900)",
+};
 export const gray = {
   50: "var(--gray-50)",
   100: "var(--gray-100)",
@@ -37,6 +49,18 @@ export const gray = {
   900: "var(--gray-900)",
 };
 
+export const grayText = {
+  50: "var(--gray-900)",
+  100: "var(--gray-800)",
+  200: "var(--gray-700)",
+  300: "var(--gray-600)",
+  400: "var(--gray-500)",
+  500: "var(--gray-400)",
+  600: "var(--gray-300)",
+  700: "var(--gray-200)",
+  800: "var(--gray-100)",
+  900: "var(--gray-50)",
+};
 export const red = {
   50: "var(--red-50)",
   100: "var(--red-100)",

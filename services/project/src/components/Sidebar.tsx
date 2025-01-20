@@ -1,37 +1,35 @@
-import { useCategories } from "@/utils/hooks";
+import { IconSet } from "@/constant/iconSet";
+import { useNestedCategories } from "@/utils/hooks";
 import { cn } from "@/utils/style";
+import {
+  Accordion,
+  AccordionButton,
+  AccordionItem,
+  AccordionLeftAddon,
+  AccordionPanel,
+} from "@hippods/react-components-interactive";
+import { Heading } from "@hippods/react-components-layout";
 import Image from "next/image";
 import Link from "next/link";
 import { FC } from "react";
 import { AiFillGithub, AiFillInstagram, AiOutlineClose } from "react-icons/ai";
 import IconButton from "./IconComponent";
-import {
-  Accordion,
-  AccordionButton,
-  AccordionItem,
-  AccordionPanel,
-} from "@hippods/react-components-interactive";
-import { Heading, Text } from "@hippods/react-components-layout";
-import { vars } from "@hippods/themes";
-
 type SidebarProps = {
   close: () => void;
   isOpen: boolean;
 };
 
 const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
-  const { data: existingCategories } = useCategories();
-  console.log("HELLO : ", { ...vars.colors.$scale.blackAlpha });
+  const { data: existingNestedCategories } = useNestedCategories();
+
   return (
     <div
       className={cn(
-        "absolute z-10 flex h-screen flex-col gap-4 border-r bg-white p-5 text-base",
-        isOpen
-          ? "translate-x-0 duration-500"
-          : "-translate-x-full duration-500",
+        "group absolute z-10 flex h-screen w-72 translate-x-0 flex-col gap-4 border-r bg-gray-100 p-3 text-base shadow-md duration-500",
+        isOpen ? "translate-x-0" : "-translate-x-full",
       )}
     >
-      <div className="flex h-64 flex-col rounded-md border">
+      <div className={cn("h-64 scale-95 flex-col rounded-md border p-4")}>
         <div className="flex h-52 items-center justify-center border-b">
           <div className="relative size-36 overflow-hidden rounded-full bg-white">
             <Image
@@ -44,7 +42,7 @@ const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
           </div>
         </div>
 
-        <div className="flex h-full flex-1 flex-col items-center justify-center">
+        <div className="flex flex-1 flex-col items-center justify-center">
           <div className="relative flex items-center gap-2">
             <IconButton
               Icon={AiFillGithub}
@@ -67,7 +65,7 @@ const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-1 flex-col gap-6 overflow-y-scroll rounded-md border p-3">
+      <div className="flex flex-1 flex-col gap-6 overflow-y-scroll rounded-md p-3">
         <div className="flex justify-start lg:hidden">
           <IconButton
             Icon={AiOutlineClose}
@@ -75,42 +73,36 @@ const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
             className="size-5"
           />
         </div>
-        {existingCategories?.map((category) => (
-          <Link
-            href={`/categories/${category}`}
-            className="w-48 font-medium text-gray-600 hover:underline"
-            key={category}
-          >
-            {category}
-          </Link>
-        ))}
+
         <Accordion defaultActiveItems={["목록1"]} style={{ width: "100%" }}>
-          <AccordionItem itemName="목록1">
-            <AccordionButton>
-              <Heading color="gray" fontSize="sm">
-                목록 1
-              </Heading>
-            </AccordionButton>
-            <AccordionPanel>
-              <Text color="gray" fontSize="md">
-                내용입니다.
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
-          <AccordionItem itemName="목록2">
-            <AccordionButton>
-              <Heading color="gray" fontSize="lg">
-                목록 2
-              </Heading>
-            </AccordionButton>
-            <AccordionPanel>
-              <Text color="gray" fontSize="md">
-                내용입니다.
-                <br />
-                내용입니다.
-              </Text>
-            </AccordionPanel>
-          </AccordionItem>
+          {existingNestedCategories &&
+            Object.entries(existingNestedCategories).map(
+              ([category, subCategories]) => (
+                <AccordionItem itemName={category} key={category}>
+                  <AccordionButton>
+                    <AccordionLeftAddon>
+                      {IconSet[category].icon()}
+                    </AccordionLeftAddon>
+                    <Heading color="reverseGray" fontSize="lg" textScale={50}>
+                      {category}
+                    </Heading>
+                  </AccordionButton>
+                  <AccordionPanel>
+                    <div className="flex flex-col gap-6">
+                      {subCategories?.map((category) => (
+                        <Link
+                          href={`/categories/${category}`}
+                          className="font-medium hover:underline"
+                          key={category}
+                        >
+                          {category}
+                        </Link>
+                      ))}
+                    </div>
+                  </AccordionPanel>
+                </AccordionItem>
+              ),
+            )}
         </Accordion>
       </div>
     </div>

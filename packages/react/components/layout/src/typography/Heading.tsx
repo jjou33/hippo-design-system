@@ -1,14 +1,22 @@
-import { vars } from "@hippods/themes"
-import * as React from "react"
-import { forwardRef } from "react"
-import { textStyle } from "./style.css"
-import { HeadingProps } from "./types"
-import { clsx } from "clsx"
-import { BaseStyle, StyleSprinkles } from "../core/style.css"
-import { extractSprinkleProps } from "../utils/properties"
+import { vars } from "@hippods/themes";
+import * as React from "react";
+import { forwardRef } from "react";
+import { textStyle } from "./style.css";
+import { HeadingProps } from "./types";
+import { clsx } from "clsx";
+import { BaseStyle, StyleSprinkles } from "../core/style.css";
+import { extractSprinkleProps } from "../utils/properties";
 
 const Heading = (props: HeadingProps, ref: React.Ref<HTMLElement>) => {
-  const { as = "h1", fontSize, background, color = "gray", children } = props
+  const {
+    as = "h1",
+    fontSize,
+    background,
+    color = "gray",
+    textScale = 700,
+    bgScale = 100,
+    children,
+  } = props;
 
   return React.createElement(
     as,
@@ -26,14 +34,14 @@ const Heading = (props: HeadingProps, ref: React.Ref<HTMLElement>) => {
         props.className,
       ]),
       style: {
-        color: color && vars.colors.$scale?.[color]?.[700],
-        background: background && vars.colors.$scale?.[background]?.[100],
+        color: color && vars.colors.$scale?.[color]?.[textScale],
+        background: background && vars.colors.$scale?.[background]?.[bgScale],
         ...props.style,
       },
     },
     children,
-  )
-}
+  );
+};
 
-const _Heading = forwardRef(Heading)
-export { _Heading as Heading }
+const _Heading = forwardRef(Heading);
+export { _Heading as Heading };

@@ -1,9 +1,9 @@
-import { cn } from '@/utils/style';
-import { createClient } from '@/utils/supabase/client';
-import { useInfiniteQuery } from '@tanstack/react-query';
-import { FC, useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
-import PostCard from './PostCard';
+import { cn } from "@/utils/style";
+import { createClient } from "@/utils/supabase/client";
+import { useInfiniteQuery } from "@tanstack/react-query";
+import { FC, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+import PostCard from "./PostCard";
 
 const supabase = createClient();
 
@@ -19,13 +19,13 @@ const PostList: FC<PostListProps> = ({ category, className, tag }) => {
     fetchNextPage,
     hasNextPage,
   } = useInfiniteQuery({
-    queryKey: ['posts', category, tag],
+    queryKey: ["posts", category, tag],
     queryFn: async ({ pageParam }) => {
-      let request = supabase.from('Post').select('*');
-      if (category) request = request.eq('category', category);
-      if (tag) request = request.like('tags', `%${tag}%`);
+      let request = supabase.from("Post").select("*");
+      if (category) request = request.eq("subcategory", category);
+      if (tag) request = request.like("tags", `%${tag}%`);
       const { data } = await request
-        .order('created_at', { ascending: false })
+        .order("created_at", { ascending: false })
         .range(pageParam, pageParam + 4);
 
       if (!data)
@@ -47,8 +47,8 @@ const PostList: FC<PostListProps> = ({ category, className, tag }) => {
   }, [inView, hasNextPage, fetchNextPage]);
 
   return (
-    <div className={cn('flex flex-col items-center gap-8 pt-20', className)}>
-      <h1 className={cn('text-2xl font-medium', !category && !tag && 'hidden')}>
+    <div className={cn("flex flex-col items-center gap-8 pt-20", className)}>
+      <h1 className={cn("text-2xl font-medium", !category && !tag && "hidden")}>
         {category ? category : `#${tag}`}
       </h1>
       <div className="container grid grid-cols-2 gap-x-4 gap-y-6 pb-24 lg:gap-x-7 lg:gap-y-12">

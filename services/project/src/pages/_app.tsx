@@ -3,13 +3,13 @@ import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import "@/styles/globals.css";
 import { cn } from "@/utils/style";
+import "@hippods/react-components-interactive/style.css";
+import "@hippods/react-components-layout/style.css";
+import "@hippods/themes/themes.css";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import type { AppProps } from "next/app";
 import { Inter } from "next/font/google";
 import { useState } from "react";
-import "@hippods/react-components-interactive/style.css";
-import "@hippods/react-components-layout/style.css";
-import "@hippods/themes/themes.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -28,7 +28,7 @@ export default function App({ Component, pageProps }: AppProps) {
         <div
           className={cn(
             "flex flex-1 flex-col transition-all duration-500",
-            isSidebarOpen ? "lg:ml-68" : "lg:ml-0", // Sidebar 상태에 따라 Main content 이동
+            isSidebarOpen ? "lg:ml-72" : "lg:ml-0", // Sidebar 상태에 따라 Main content 이동
           )}
         >
           <Header

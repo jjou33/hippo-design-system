@@ -1,10 +1,10 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { Post, PostRequest } from '@/types';
-import { createClient } from '@/utils/supabase/server';
+import type { Post, PostRequest } from "@/types";
+import { createClient } from "@/utils/supabase/server";
 
-import formidable from 'formidable';
-import { readFileSync } from 'fs';
-import type { NextApiRequest, NextApiResponse } from 'next';
+import formidable from "formidable";
+import { readFileSync } from "fs";
+import type { NextApiRequest, NextApiResponse } from "next";
 
 export const config = {
   api: {
@@ -14,9 +14,9 @@ export const config = {
 
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Post>
+  res: NextApiResponse<Post>,
 ) {
-  if (req.method !== 'POST') return res.status(405).end();
+  if (req.method !== "POST") return res.status(405).end();
 
   const form = formidable({ multiples: true });
 
@@ -31,7 +31,7 @@ export default async function handler(
     const fileContent = await readFileSync(file.filepath);
     const fileName = `${file.newFilename}_${file.originalFilename}`;
     const { data: uploadData } = await supabase.storage
-      .from('blog-image')
+      .from("blog-image")
       .upload(fileName, fileContent, {
         contentType: file?.mimetype ?? undefined,
       });
@@ -41,22 +41,23 @@ export default async function handler(
     // }
     if (uploadData?.path) {
       const { data } = await supabase.storage
-        .from('blog-image')
+        .from("blog-image")
         .getPublicUrl(uploadData.path);
       preview_image_url = data.publicUrl;
     }
   }
 
-  const { title, category, tags, content } = fields;
+  const { title, category, tags, content, subcategory } = fields;
   const postRequest = {
     title: title?.[0],
     category: category?.[0],
     tags: tags?.[0],
     content: content?.[0],
+    subcategory: subcategory?.[0],
     preview_image_url,
   } as PostRequest;
 
-  const { data } = await supabase.from('Post').insert([postRequest]).select();
+  const { data } = await supabase.from("Post").insert([postRequest]).select();
 
   if (data && data.length === 1) {
     const { tags, ...rest } = data[0];
