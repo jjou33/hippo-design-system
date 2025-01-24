@@ -6,7 +6,7 @@ import Link from "next/link";
 import { FC } from "react";
 
 type PostCardProps = Omit<Post, "tags"> & {
-  tags: string;
+  tags: string[];
   className?: string;
 };
 const PostCard: FC<PostCardProps> = ({

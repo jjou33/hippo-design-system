@@ -27,9 +27,7 @@ const IconButton = <Component extends ElementType = "button">({
     },
     <Icon
       className={
-        isItem
-          ? cn("transition-all", iconClassName)
-          : cn("size-5 transition-all lg:size-6", iconClassName)
+        isItem ? cn("", iconClassName) : cn("size-5 lg:size-6", iconClassName)
       }
     />,
   );

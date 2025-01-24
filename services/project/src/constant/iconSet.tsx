@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import {
   BiAbacus,
   BiAccessibility,
@@ -5,7 +6,14 @@ import {
   BiAdjust,
 } from "react-icons/bi";
 
-export const IconSet = {
+import { FiMoon, FiSun } from "react-icons/fi";
+
+type IconSetType = {
+  [key: string]: {
+    icon: () => ReactNode;
+  };
+};
+export const IconSet: IconSetType = {
   Web4: {
     icon: () => {
       return <BiAbacus />;
@@ -24,6 +32,16 @@ export const IconSet = {
   Web3: {
     icon: () => {
       return <BiAdjust />;
+    },
+  },
+  lightMode: {
+    icon: () => {
+      return <FiSun />;
+    },
+  },
+  darkMode: {
+    icon: () => {
+      return <FiMoon />;
     },
   },
 };
