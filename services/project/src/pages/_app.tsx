@@ -52,8 +52,8 @@ export default function App({ Component, pageProps }: AppProps) {
                   setIsSidebarOpen={setIsSidebarOpen}
                 />
               </main>
+              <Footer />
             </div>
-            <Footer />
           </div>
         </div>
       </RecoilRoot>

@@ -19,7 +19,7 @@ export const HeroSection = ({ setIsHeroSection }: HeroProps) => {
       ref={ref}
       className="relative flex items-center justify-center"
       style={{
-        height: "calc((100vh - 64px))", // 70% of remaining height
+        height: "calc((100vh))", // 70% of remaining height
       }}
     >
       <div className="relative size-full">

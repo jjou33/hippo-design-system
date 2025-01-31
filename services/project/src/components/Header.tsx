@@ -1,11 +1,13 @@
 import { darkModeState } from "@/atoms/themeAtom";
 import { cn } from "@/utils/style";
-import Link from "next/link";
 import { Dispatch, FC, SetStateAction } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import { FiMoon, FiSun } from "react-icons/fi";
 import { useRecoilState } from "recoil";
+
+import Link from "next/link";
 import IconButton from "./IconComponent";
+
 type HeaderProps = {
   isSidebarOpen: boolean;
   setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
