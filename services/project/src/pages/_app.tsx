@@ -1,5 +1,4 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 import Sidebar from "@/components/Sidebar";
 import "@/styles/globals.css";
 import { cn } from "@/utils/style";
@@ -45,13 +44,13 @@ export default function App({ Component, pageProps }: AppProps) {
               isSidebarOpen ? "lg:ml-72" : "lg:ml-0", // Sidebar 상태에 따라 Main content 이동
             )}
           >
-            <Header
-              isSidebarOpen={isSidebarOpen}
-              setIsSidebarOpen={setIsSidebarOpen}
-            />
             <div className="flex flex-1 flex-col overflow-y-auto">
-              <main className="flex-1">
-                <Component {...pageProps} />
+              <main className="relative flex-1">
+                <Component
+                  {...pageProps}
+                  isSidebarOpen={isSidebarOpen}
+                  setIsSidebarOpen={setIsSidebarOpen}
+                />
               </main>
             </div>
             <Footer />

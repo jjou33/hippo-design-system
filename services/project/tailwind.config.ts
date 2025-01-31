@@ -39,8 +39,8 @@ const config: Config = {
         red: { ...vars.colors.$scale.red },
         cyan: { ...vars.colors.$scale.cyan },
         reverseGray: { ...vars.colors.$scale.reverseGray },
+        deepGray: "#A0AEC0",
       },
-      textColor: {},
       boxShadow: shadows,
       borderRadius: {
         "card-top": "0.375rem 0.375rem 0 0",

@@ -1,16 +1,28 @@
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 import Image from "next/image";
+import { Dispatch, SetStateAction, useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
-export const HeroSection = () => {
+type HeroProps = {
+  setIsHeroSection: Dispatch<SetStateAction<boolean>>;
+};
+export const HeroSection = ({ setIsHeroSection }: HeroProps) => {
+  const { ref, inView } = useInView({
+    threshold: 0,
+  });
+
+  useEffect(() => {
+    setIsHeroSection(!inView);
+  }, [inView, setIsHeroSection]);
   return (
     <div
+      ref={ref}
       className="relative flex items-center justify-center"
       style={{
-        height: "calc((100vh - 113px))", // 70% of remaining height
-        marginTop: "10px",
+        height: "calc((100vh - 64px))", // 70% of remaining height
       }}
     >
-      <div className="relative size-full w-full">
+      <div className="relative size-full">
         <div className="absolute inset-0 overflow-hidden">
           <Image
             src="/heroBackground.gif"
@@ -22,7 +34,7 @@ export const HeroSection = () => {
           />
         </div>
 
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-blackAlpha-400 bg-opacity-50"></div>
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="mb-4 text-5xl font-bold">Welcome to Our Platform</h1>

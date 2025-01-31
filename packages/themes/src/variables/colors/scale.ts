@@ -1,3 +1,9 @@
+// export const deepColor = {
+//   white: "var(--color-white)",
+//   black: "var(--color-black)",
+//   gray: "var(--color-gray)",
+// };
+
 export const whiteAlpha = {
   50: "var(--white-alpha-50)",
   100: "var(--white-alpha-100)",

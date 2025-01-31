@@ -1,8 +1,13 @@
 export const color = {
   black: "#000",
   white: "#fff",
+  gray: "#F7FAFC",
 };
-
+export const staticColor = {
+  "soft-gray": "#F7FAFC",
+  "deep-black": "#000",
+  "deep-white": "#fff",
+};
 export const primaryTextColor = {
   50: "#F7FAFC",
   100: "#EDF2F7",

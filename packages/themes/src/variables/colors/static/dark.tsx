@@ -1,8 +1,14 @@
 export const color = {
   black: "#000",
   white: "#fff",
+  gray: "#A0AEC0",
 };
 
+export const staticColor = {
+  "soft-gray": "#F7FAFC",
+  "deep-black": "#000",
+  "deep-white": "#fff",
+};
 export const whiteAlpha = {
   900: "rgba(255, 255, 255, 0.04)",
   800: "rgba(255, 255, 255, 0.06)",

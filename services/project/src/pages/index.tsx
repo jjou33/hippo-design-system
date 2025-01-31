@@ -1,11 +1,12 @@
 import { darkModeState } from "@/atoms/themeAtom";
+import Header from "@/components/Header";
 import HeroSection from "@/components/HeroComponent";
 import PostList from "@/components/PostList";
 import { Post } from "@/types";
 import { createClient } from "@/utils/supabase/server";
 
 import { GetStaticProps } from "next";
-import { useEffect } from "react";
+import { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { useRecoilState } from "recoil";
 
 export const getStaticProps = (async () => {
@@ -24,8 +25,14 @@ export const getStaticProps = (async () => {
 }) satisfies GetStaticProps<{
   posts: Post[];
 }>;
-export default function Home() {
+
+type HomeProps = {
+  isSidebarOpen: boolean;
+  setIsSidebarOpen: Dispatch<SetStateAction<boolean>>;
+};
+export default function Home({ isSidebarOpen, setIsSidebarOpen }: HomeProps) {
   const [isDarkMode, setIsDarkMode] = useRecoilState(darkModeState);
+  const [isEndHeroSection, setIsHeroSection] = useState(false);
   useEffect(() => {
     const currentTheme = document.body.classList.contains("theme-dark");
 
@@ -36,7 +43,12 @@ export default function Home() {
 
   return (
     <div className="flex flex-col">
-      <HeroSection />
+      <Header
+        isEndHeroSection={isEndHeroSection}
+        isSidebarOpen={isSidebarOpen}
+        setIsSidebarOpen={setIsSidebarOpen}
+      />
+      <HeroSection setIsHeroSection={setIsHeroSection} />
       <PostList />;
     </div>
   );
