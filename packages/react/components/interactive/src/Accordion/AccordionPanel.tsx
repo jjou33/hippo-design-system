@@ -1,47 +1,56 @@
-import * as React from "react"
-import { AccordionPanelProps } from "./types"
-import { clsx } from "clsx"
-import { accordionPanelStyle, panelHeight } from "./style.css"
-import { useAccordionContext } from "./AccordionContext"
-import { useEffect, useRef, useState } from "react"
-import { assignInlineVars } from "@vanilla-extract/dynamic"
+import { assignInlineVars } from "@vanilla-extract/dynamic";
+import { clsx } from "clsx";
+import * as React from "react";
+import { useEffect, useRef, useState } from "react";
+import { useAccordionContext } from "./AccordionContext";
+import { accordionPanelStyle, panelHeight } from "./style.css";
+import { AccordionPanelProps } from "./types";
 
 const AccordionPanel = (
-  props: AccordionPanelProps,
+  props: AccordionPanelProps & { setActivePanel?: (isActive: boolean) => void },
   ref: React.Ref<HTMLDivElement>,
 ) => {
-  const { itemName = "", children, className, style, ...rest } = props
-  const innerRef = useRef<HTMLDivElement>(null)
+  const { itemName = "", children, className, style, ...rest } = props;
+  const innerRef = useRef<HTMLDivElement>(null);
 
-  const { activeItems } = useAccordionContext()
-  const isActive = activeItems.includes(itemName)
+  const { activeItems } = useAccordionContext();
+  const isActive = activeItems.includes(itemName);
 
-  const [currentPanelHeight, setCurrentPanelHeight] = useState<string>()
+  const [currentPanelHeight, setCurrentPanelHeight] = useState<string>();
+
+  React.useImperativeHandle(ref, () => ({
+    ...((innerRef.current as HTMLDivElement) || {}), // HTMLDivElement의 기본 속성 유지
+    getIsActive: () => isActive, // 추가 메서드 정의
+  }));
+
   useEffect(() => {
     const handleResize = () => {
-      if (!innerRef.current) return
+      if (!innerRef.current) return;
 
-      setCurrentPanelHeight(`${innerRef.current.clientHeight}px`)
-    }
+      setCurrentPanelHeight(`${innerRef.current.clientHeight}px`);
+    };
 
-    if (!innerRef.current) return
+    if (!innerRef.current) return;
 
     if (isActive) {
-      handleResize()
+      handleResize();
 
-      const observer = new MutationObserver(handleResize)
+      const observer = new MutationObserver(handleResize);
       observer.observe(innerRef.current, {
         childList: true,
         subtree: true,
-      })
+      });
 
+      if (props.setActivePanel) props.setActivePanel(activeItems);
       return () => {
-        observer.disconnect()
-      }
+        observer.disconnect();
+      };
     } else {
-      setCurrentPanelHeight("0")
+      if (props.setActivePanel) props.setActivePanel(activeItems);
+
+      setCurrentPanelHeight("0");
     }
-  }, [isActive, activeItems])
+  }, [isActive, activeItems, props]);
 
   return (
     <div
@@ -61,8 +70,8 @@ const AccordionPanel = (
         {children}
       </div>
     </div>
-  )
-}
+  );
+};
 
-const _AccordionPanel = React.forwardRef(AccordionPanel)
-export { _AccordionPanel as AccordionPanel }
+const _AccordionPanel = React.forwardRef(AccordionPanel);
+export { _AccordionPanel as AccordionPanel };

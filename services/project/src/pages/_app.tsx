@@ -1,5 +1,6 @@
 import Footer from "@/components/Footer";
 import Sidebar from "@/components/Sidebar";
+import { gmarketSans } from "@/styles/fonts";
 import "@/styles/globals.css";
 import { cn } from "@/utils/style";
 import "@hippods/react-components-interactive/style.css";
@@ -30,8 +31,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <RecoilRoot>
         <div
           className={cn(
-            "flex h-screen w-screen text-sm lg:text-base",
+            "font-gmarket flex h-screen w-screen text-sm lg:text-base",
             inter.className,
+            gmarketSans.variable,
           )}
         >
           <Sidebar

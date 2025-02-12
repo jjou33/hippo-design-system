@@ -15,6 +15,7 @@ export type Database = {
           content: string
           created_at: string
           id: number
+          maincategory: string | null
           preview_image_url: string | null
           subcategory: string | null
           tags: string
@@ -25,6 +26,7 @@ export type Database = {
           content: string
           created_at?: string
           id?: number
+          maincategory?: string | null
           preview_image_url?: string | null
           subcategory?: string | null
           tags: string
@@ -35,6 +37,7 @@ export type Database = {
           content?: string
           created_at?: string
           id?: number
+          maincategory?: string | null
           preview_image_url?: string | null
           subcategory?: string | null
           tags?: string

@@ -34,7 +34,7 @@ export const HeroSection = ({ setIsHeroSection }: HeroProps) => {
           />
         </div>
 
-        <div className="absolute inset-0 bg-blackAlpha-400 bg-opacity-50"></div>
+        <div className="absolute inset-0 bg-blackAlpha-500 bg-opacity-50"></div>
 
         <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center text-white">
           <h1 className="mb-4 text-5xl font-bold">Welcome to Our Platform</h1>

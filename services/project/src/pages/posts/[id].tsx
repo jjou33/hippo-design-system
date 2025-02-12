@@ -36,6 +36,7 @@ export const getStaticProps = (async (context) => {
     created_at,
     preview_image_url,
     subcategory,
+    maincategory,
   } = data[0];
 
   return {
@@ -48,6 +49,7 @@ export const getStaticProps = (async (context) => {
       created_at,
       preview_image_url,
       subcategory,
+      maincategory,
     },
   };
 }) satisfies GetStaticProps<Post>;

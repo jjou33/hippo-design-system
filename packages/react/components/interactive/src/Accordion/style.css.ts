@@ -11,7 +11,7 @@ const resetStyle = style({
 
 export const accordionStyle = style([resetStyle]);
 
-export const accordionItemStyle = style([
+export const accordionItemStyleWithBottom = style([
   resetStyle,
   {
     width: "100%",
@@ -31,17 +31,33 @@ export const accordionItemStyle = style([
   },
 ]);
 
+export const accordionItemStyle = style([
+  resetStyle,
+  {
+    width: "100%",
+    display: "flex",
+    flexDirection: "column",
+    justifyContent: "space-between",
+  },
+]);
 export const accordionButtonStyle = style([
   resetStyle,
   {
     width: "100%",
-    padding: "0.5rem 0.75rem",
+    padding: "0.5rem 0",
     gap: "0.625rem",
     display: "flex",
     alignItems: "center",
   },
 ]);
 
+export const accordionButtonInnerStyle = style([
+  resetStyle,
+  {
+    display: "flex",
+    justifyContent: "space-between",
+  },
+]);
 export const panelHeight = createVar();
 export const accordionPanelStyle = style([
   resetStyle,
@@ -53,7 +69,7 @@ export const accordionPanelStyle = style([
 
     // @ts-ignore
     "& > div[data-name='panel-inner']": {
-      padding: "0.5rem 0.75rem 1.25rem",
+      // padding: "0.5rem 0.75rem 1.25rem",
     },
   },
 ]);

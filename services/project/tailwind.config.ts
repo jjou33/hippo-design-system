@@ -31,6 +31,9 @@ const config: Config = {
       dark: { raw: "(prefers-color-scheme: dark)" },
     },
     extend: {
+      fontFamily: {
+        gmarket: "var(--font-gmarket-sans)",
+      },
       colors: {
         ...require("tailwindcss/colors"),
         blackAlpha: { ...vars.colors.$scale.blackAlpha },

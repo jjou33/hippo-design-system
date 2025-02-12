@@ -21,6 +21,7 @@ export type AccordionButtonProps = {
 
 export type AccordionPanelProps = {
   itemName?: string;
+  isBottomBorder?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export type AccordionLeftAddonProps = {

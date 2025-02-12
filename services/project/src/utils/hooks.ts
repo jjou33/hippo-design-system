@@ -9,7 +9,7 @@ export const useNestedCategories = () =>
     queryFn: async () => {
       const { data, error } = await supabase
         .from("Post")
-        .select("category, subcategory");
+        .select("maincategory, category, subcategory");
       // const { data } = await supabase.from("Post").select("subcategory");
 
       if (error) {
@@ -35,6 +35,46 @@ export const useNestedCategories = () =>
       );
 
       return groupedCategories;
+    },
+  });
+
+export const useNestedCategoriesSample = () =>
+  useQuery({
+    queryKey: ["nestedCateogories"],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from("Post")
+        .select("maincategory, category, subcategory");
+      // const { data } = await supabase.from("Post").select("subcategory");
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      const groupedCategoriesSample = data.reduce(
+        (acc: Record<string, Record<string, string[]>>, row) => {
+          if (!row.maincategory || !row.category || !row.subcategory) {
+            return acc; // ✅ null 값이 하나라도 있으면 무시
+          }
+          const { maincategory, category, subcategory } = row;
+
+          if (!acc[maincategory]) {
+            acc[maincategory] = {}; // ✅ category를 담을 객체
+          }
+          if (!acc[maincategory][category]) {
+            acc[maincategory][category] = []; // ✅ subcategory 배열
+          }
+          if (!acc[maincategory][category].includes(subcategory)) {
+            acc[maincategory][category].push(subcategory);
+          }
+
+          return acc;
+        },
+        {} as Record<string, Record<string, string[]>>, // 초기 타입 지정
+      );
+
+      console.log("SAMPLE : ", groupedCategoriesSample);
+      return groupedCategoriesSample;
     },
   });
 
