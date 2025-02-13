@@ -1,3 +1,5 @@
+"use client";
+
 /* eslint-disable tailwindcss/migration-from-tailwind-2 */
 import Image from "next/image";
 import { Dispatch, SetStateAction, useEffect } from "react";

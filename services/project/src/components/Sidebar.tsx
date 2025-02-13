@@ -1,4 +1,5 @@
-import { darkModeState } from "@/atoms/themeAtom";
+"use client";
+
 import { IconSet } from "@/constant/iconSet";
 import { useNestedCategoriesSample } from "@/utils/hooks";
 import { cn } from "@/utils/style";
@@ -13,22 +14,19 @@ import Image from "next/image";
 import Link from "next/link";
 import { FC, useEffect, useState } from "react";
 import { AiFillGithub, AiFillInstagram, AiOutlineClose } from "react-icons/ai";
-import { useRecoilValue } from "recoil";
+// import { useRecoilValue } from "recoil";
 import IconButton from "./IconComponent";
-type SidebarProps = {
-  close: () => void;
-  isOpen: boolean;
-};
+import { useSidebar } from "./Providers";
 
-const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
+const Sidebar: FC = () => {
   // const { data: existingNestedCategories } = useNestedCategories();
-
+  const { isOpen, setIsOpen } = useSidebar();
   const [activePanel, setActivePanel] = useState<string[]>([]);
   const { data: existingNestedCategories } = useNestedCategoriesSample();
 
   useEffect(() => {}, [activePanel]);
 
-  const isDarkMode = useRecoilValue(darkModeState);
+  // const isDarkMode = useRecoilValue(darkModeState);
 
   const isActive = (category: string) => {
     if (activePanel.includes(category)) {
@@ -65,8 +63,8 @@ const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
         <div className="flex flex-1 flex-col items-center justify-center border-b pb-5">
           <div
             className={cn(
-              "relative flex items-center gap-2 rounded-3xl",
-              isDarkMode ? "shadow-custom-dark" : "shadow-custom",
+              "relative flex items-center gap-2 rounded-3xl shadow-custom",
+              // isDarkMode ? "shadow-custom-dark" : "shadow-custom",
             )}
           >
             <IconButton
@@ -88,7 +86,7 @@ const Sidebar: FC<SidebarProps> = ({ close, isOpen }) => {
         <div className="flex justify-start lg:hidden">
           <IconButton
             Icon={AiOutlineClose}
-            onClick={close}
+            onClick={() => setIsOpen(false)}
             className="size-5"
           />
         </div>

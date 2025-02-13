@@ -1,3 +1,5 @@
+"use client";
+
 import Button from "@/components/Button";
 import Input from "@/components/Input";
 import { MarkdownEditor } from "@/components/Markdown";
@@ -19,7 +21,7 @@ const CreatableSelect = dynamic(() => import("react-select/creatable"), {
   ssr: false,
 });
 
-export default function Write() {
+export default function WritePage() {
   const router = useRouter();
   const titleRef = useRef<HTMLInputElement>(null);
   const fileRef = useRef<HTMLInputElement>(null);
