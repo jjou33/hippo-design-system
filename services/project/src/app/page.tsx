@@ -1,3 +1,4 @@
+import Header from "@/components/Header";
 import PostList from "@/components/PostList";
 import { createClient } from "@/utils/supabase/server";
 import { cookies } from "next/headers";
@@ -35,11 +36,14 @@ export default async function Home() {
   const { data } = await supabase.from("Post").select("*");
 
   return (
-    <PostList
-      initialPosts={data?.map((post) => ({
-        ...post,
-        tags: JSON.parse(post.tags) as string[],
-      }))}
-    />
+    <div className="flex flex-col">
+      <Header />
+      <PostList
+        initialPosts={data?.map((post) => ({
+          ...post,
+          tags: JSON.parse(post.tags) as string[],
+        }))}
+      />
+    </div>
   );
 }

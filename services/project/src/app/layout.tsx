@@ -1,6 +1,5 @@
 import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import Providers from "@/components/Providers";
+import RecoilProvider from "@/components/RecoilProvider";
 import Sidebar from "@/components/Sidebar";
 import { gmarketSans } from "@/styles/fonts";
 import "@/styles/globals.css";
@@ -10,7 +9,6 @@ import "@hippods/react-components-layout/style.css";
 import "@hippods/themes/themes.css";
 import { Inter } from "next/font/google";
 import { ReactNode } from "react";
-
 const inter = Inter({ subsets: ["latin"] });
 
 export default function RootLayout({ children }: { children: ReactNode }) {
@@ -26,8 +24,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
     <html lang="ko">
       <head />
       <body>
-        <Providers>
-          {/* <RecoilRoot> */}
+        {/* <Providers> */}
+        <RecoilProvider>
           <div
             className={cn(
               "flex h-screen w-screen font-gmarket text-sm lg:text-base",
@@ -43,7 +41,6 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               )}
             >
               <div className="flex flex-1 flex-col overflow-y-auto">
-                <Header />
                 <main className="relative flex-1">
                   {children}
                   {/* <Component
@@ -56,8 +53,8 @@ export default function RootLayout({ children }: { children: ReactNode }) {
               </div>
             </div>
           </div>
-          {/* </RecoilRoot> */}
-        </Providers>
+        </RecoilProvider>
+        {/* </Providers> */}
       </body>
     </html>
   );
